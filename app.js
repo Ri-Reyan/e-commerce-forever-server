@@ -8,7 +8,25 @@ import adminPanelRouter from "./src/routes/AdminPanel.routes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
-app.use(cors());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://e-commerce-forever-client.onrender.com",
+  "https://e-commerce-forever-client.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
