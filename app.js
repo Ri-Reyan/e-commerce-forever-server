@@ -10,7 +10,11 @@ import cookieParser from "cookie-parser";
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://e-commerce-forever-client.onrender.com/",
+      "https://e-commerce-forever-client.vercel.app/",
+    ],
     credentials: true,
   })
 );
