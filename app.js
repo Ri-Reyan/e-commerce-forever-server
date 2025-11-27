@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:3000",
+  "http://localhost:5173",
   "https://e-commerce-forever-client.onrender.com",
   "https://e-commerce-forever-client.vercel.app",
 ];
