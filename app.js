@@ -12,8 +12,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://e-commerce-forever-client.onrender.com/",
-      "https://e-commerce-forever-client.vercel.app/",
+      "https://e-commerce-forever-client.onrender.com",
+      "https://e-commerce-forever-client.vercel.app",
     ],
     credentials: true,
   })
