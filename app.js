@@ -9,14 +9,9 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
-const allowedOrigins = [
-  "https://e-commerce-forever-client.onrender.com",
-  "https://e-commerce-forever-client.vercel.app",
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://e-commerce-forever-client.vercel.app/",
     credentials: true,
     optionsSuccessStatus: 200,
   })
