@@ -9,5 +9,5 @@ const server = http.createServer(app);
 DBconnection();
 
 server.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });

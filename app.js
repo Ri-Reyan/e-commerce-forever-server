@@ -11,10 +11,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://e-commerce-forever-client.vercel.app",
+    origin: `${process.env.CORS_URI}`,
     credentials: true,
     optionsSuccessStatus: 200,
-  })
+  }),
 );
 
 app.use(express.json());
