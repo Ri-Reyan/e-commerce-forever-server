@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://e-commerce-forever-client.vercel.app/",
+    origin: "https://e-commerce-forever-client.vercel.app",
     credentials: true,
     optionsSuccessStatus: 200,
   })
