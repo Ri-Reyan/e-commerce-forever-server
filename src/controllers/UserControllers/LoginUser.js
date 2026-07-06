@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../../models/User/UserModel.js";
 import bcrypt from "bcrypt";
+import { getCookieOptions } from "../../utils/cookieOptions.js";
 
 const LoginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -36,15 +37,10 @@ const LoginUser = async (req, res) => {
       const token = jwt.sign(
         { id: existedUser._id, role: "user" },
         process.env.JWT_SECRET,
-        { expiresIn: "7d" }
+        { expiresIn: "7d" },
       );
 
-      res.cookie("token", token, {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: false,
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-      });
+      res.cookie("token", token, getCookieOptions());
 
       return res.status(200).json({
         message: "Logged in successfully",

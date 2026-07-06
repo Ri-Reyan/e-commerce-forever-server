@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import Admin from "../models/Admin/AdminModel.js";
 
 const UserAuth = async (req, res, next) => {
-  const { token } = req.cookie;
+  const token = req.cookies?.token;
 
   if (!token) {
     return res.status(401).json({

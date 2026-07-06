@@ -24,6 +24,16 @@ const CreateProduct = async (req, res) => {
       });
     }
 
+    let parsedSizes = [];
+
+    try {
+      parsedSizes = typeof sizes === "string" ? JSON.parse(sizes) : sizes;
+    } catch (error) {
+      return res.status(400).json({
+        message: "Invalid sizes format",
+      });
+    }
+
     const imagesUrl = [];
 
     for (const file of req.files) {
@@ -40,7 +50,7 @@ const CreateProduct = async (req, res) => {
       images: imagesUrl,
       category,
       subCategory,
-      sizes: JSON.parse(sizes),
+      sizes: parsedSizes,
     });
 
     return res.status(201).json({
